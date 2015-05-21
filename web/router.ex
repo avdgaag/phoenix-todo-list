@@ -18,6 +18,10 @@ defmodule Todo.Router do
     get "/", PageController, :index
   end
 
+  socket "/ws", Todo do
+    channel "todo_lists:lobby", TodoListChannel
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Todo do
   #   pipe_through :api
